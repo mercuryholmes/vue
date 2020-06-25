@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  vue:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: vue
+    volumes:
+      - ./:/var/www
+      - /var/www/node_modules
+    ports:
+      - 8000:8080
+    environment:
+      TZ: 'Asia/Tokyo'
+    tty: true
+    command: 'yarn serve'
+    # https://qiita.com/tatsumi44/items/177b3b09a8b5ce6ca971
